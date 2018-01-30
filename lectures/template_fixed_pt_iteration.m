@@ -25,7 +25,7 @@ function fixed_pt_iteration(x, y, n, fname)
   end
   
   % Plot the residual error vs iteration number on a log scale 
-  % using the command semilogy.
+  % using the semilogy command.
   f = x + log(x) - log(y);
   % ...
   
@@ -34,9 +34,11 @@ function fixed_pt_iteration(x, y, n, fname)
   
   % Add a title. The sprintf command lets us format the string.
   % ...
-  grid; % A grid makes the plot easier to read
   
+  grid; % A grid makes the plot easier to read
+  set(gca,"yminorgrid", "off"); 
+
   % If a filename is provided, print to that file 
-  % using the command print.
+  % using the print command.
   % ...
   end
