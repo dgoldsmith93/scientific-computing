@@ -24,19 +24,23 @@ function fixed_pt_iteration(x, y, n, fname)
     x(i+1) = log(y) - log(x(i));
   end
   
-  % Plot the residual error vs iteration number on a log scale 
-  % using the command semilogy.
+  % Plot the residual error vs iteration number on a log scale
   f = x + log(x) - log(y);
-  % ...
+  semilogy(abs(f), 'x-');
   
   % Label the x and y axes
-  % ...
+  xlabel('i');
+  ylabel('Residual |x_i + log(x_i) - log(y)|');
   
   % Add a title. The sprintf command lets us format the string.
-  % ...
-  grid; % A grid makes the plot easier to read
+  title(sprintf(['Convergence of x_{i+1} = log(y)-log(x_i), '...
+  'with x_1 = %g, y = %g\n'], x(1), y));
   
-  % If a filename is provided, print to that file 
-  % using the command print.
-  % ...
+  grid; % A grid makes the plot easier to read
+  set(gca,"yminorgrid", "off"); 
+  
+  % If a filename is provided, print to that file (sized for book)
+  if nargin ==4
+    set(gcf, 'PaperPosition', [0 0 12 6]);
+    print('-deps ', fname);
   end
