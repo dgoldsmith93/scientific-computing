@@ -37,4 +37,4 @@ y2 =                % the y coordinate of p3's anchor
 
 % ...
 
-out = N1.^2+N2.^2-p1.^2.*D.^2;
+out = N1^2+N2^2-p1^2*D^2;
